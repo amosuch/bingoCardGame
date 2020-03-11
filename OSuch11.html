@@ -8,24 +8,42 @@
             font-size: 5em;
         }
 
-        button
+        .callbtn
         {
             align-items: center;
-            width: 30%;
+            width: 49%;
             height: 30%;
             font-size: 3em;
-            background-color: darkred;
+            background-color: green;
             color: white;
             border-radius: 50px;
+        }
+
+        .bingoReset
+        {   
+            align-items: center;
+            width: 50%;
+            height: 30%;
+            font-size: 3em;
+            background-color: darkblue;
+            color: white;
+            border-radius: 50px;
+        }
+
+        .output
+        {
+            font-size: 3em;
+            text-align: center;
         }
     </style>
 </head>
 <body>
-<div id = "output"></div>
 <h1>BINGO GAME!!!!</h1>
         
-<button type= "button" onclick="document.getElementById('output').innerHTML= callNewNumbers()">CALL NEW NUMBER!!!!</button>
-<button type= "button" onclick="document.getElementById('output').innerHTML= displayNumbers()">BINGO!!!/RESET GAME</button>
+<button type= "button" class = "callbtn" onclick="document.getElementById('output').innerHTML= callNewNumbers()">CALL NEW NUMBER!!!!</button>
+<button type= "button" class = "bingoReset" onclick="document.getElementById('output').innerHTML= displayNumbers()">BINGO!!!/RESET GAME</button>
+<div id = "output" class="output"></div>
+
 <script>
 
 let numbers = new Set()
@@ -41,12 +59,12 @@ let calledNumbers = [];
 function callNewNumbers(){
         let array = Array.from(numbers);
         let random = array[Math.floor(Math.random() * array.length)];
-        callNewNumbers.push(random);
+        calledNumbers.push(random);
         return random;
     }
 
     function displayNumbers() {
-        return callNewNumbers;
+        return calledNumbers;
     }
 </script>
 </body>
